@@ -9,4 +9,8 @@ public interface UserService {
      * @return
      */
     User login(User user);
+
+    void register(User user);
+
+    User getUserByUserId(User user);
 }

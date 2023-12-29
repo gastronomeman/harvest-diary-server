@@ -22,4 +22,19 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         return userMapper.getByUserNumberAndPassword(user);
     }
+
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
+    @Override
+    public void register(User user) {
+        userMapper.addUser(user);
+    }
+
+    @Override
+    public User getUserByUserId(User user) {
+        return userMapper.getUserByUserId(user);
+    }
 }

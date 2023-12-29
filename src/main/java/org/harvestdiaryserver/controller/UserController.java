@@ -19,6 +19,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 用户登录验证
+     * @param user
+     * @return
+     */
     @PostMapping("/login")
     public Result login(@RequestBody User user){
         log.info("用户登录：{}", user);
@@ -26,8 +31,21 @@ public class UserController {
         if (u != null){
             return Result.success();
         }
-
         return Result.error("用户名密码错误");
     }
 
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
+    @PostMapping("/register")
+    public Result register(@RequestBody User user){
+        log.info("注册用户：{}", user);
+        if (userService.getUserByUserId(user) == null){
+            userService.register(user);
+            return Result.success("注册成功");
+        }
+        return Result.error("账号已存在");
+    }
 }
