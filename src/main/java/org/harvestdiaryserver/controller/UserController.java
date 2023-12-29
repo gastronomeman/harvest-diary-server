@@ -42,10 +42,14 @@ public class UserController {
     @PostMapping("/register")
     public Result register(@RequestBody User user){
         log.info("注册用户：{}", user);
-        if (userService.getUserByUserId(user) == null){
-            userService.register(user);
-            return Result.success("注册成功");
+        if (userService.getUserByUserId(user) != null){
+            return Result.error("error1");
         }
-        return Result.error("账号已存在");
+        if (userService.getUserByUserPhone(user) != null){
+            return Result.error("error2");
+        }
+        userService.addUser(user);
+        return Result.success("注册成功");
+
     }
 }

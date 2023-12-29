@@ -17,9 +17,12 @@ public interface UserMapper {
     @Select("select *from user_info where user_id = #{userId} and password = #{password}")
     User getByUserNumberAndPassword(User user);
 
-    @Insert("insert into user_info values (#{userNumber}, #{username}, #{password}, #{phone})")
+    @Insert("insert into user_info values (#{userId}, #{username}, #{password}, #{phone})")
     void addUser(User user);
 
     @Select("select *from user_info where user_id = #{userId}")
     User getUserByUserId(User user);
+
+    @Select("select *from user_info where phone = #{phone}")
+    User getUserByUserPhone(User user);
 }

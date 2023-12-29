@@ -29,12 +29,17 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public void register(User user) {
+    public void addUser(User user) {
         userMapper.addUser(user);
     }
 
     @Override
     public User getUserByUserId(User user) {
         return userMapper.getUserByUserId(user);
+    }
+
+    @Override
+    public User getUserByUserPhone(User user) {
+        return userMapper.getUserByUserPhone(user);
     }
 }

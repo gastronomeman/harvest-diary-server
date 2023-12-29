@@ -10,7 +10,9 @@ public interface UserService {
      */
     User login(User user);
 
-    void register(User user);
-
     User getUserByUserId(User user);
+
+    User getUserByUserPhone(User user);
+
+    void addUser(User user);
 }

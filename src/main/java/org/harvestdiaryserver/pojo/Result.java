@@ -20,7 +20,14 @@ public class Result {
     public static Result success(Object data){
         return new Result(1,"success",data);
     }
-    //失败响应
+
+    /**
+     * 失败响应
+     * @param msg
+     * @return
+     * error1：用户账号已存在
+     * error2：电话已被注册
+     */
     public static Result error(String msg){
         return new Result(0,msg,null);
     }
