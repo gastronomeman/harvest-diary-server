@@ -29,7 +29,7 @@ public class Result {
      * error2：电话已被注册
      * error3：用户名密码错误
      * error4：昵称或2电话号码错误
-     * error5：添加失败
+     * error5：添加日记失败
      */
     public static Result error(String msg){
         return new Result(0,msg,null);
