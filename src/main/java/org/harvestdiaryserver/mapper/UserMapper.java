@@ -25,4 +25,7 @@ public interface UserMapper {
 
     @Select("select *from user_info where phone = #{phone}")
     User getUserByUserPhone(User user);
+
+    @Select("select *from user_info where username = #{username} and phone = #{phone}")
+    User getUserByUsernameAndPhone(User user);
 }

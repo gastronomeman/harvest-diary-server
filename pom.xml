@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.HarvestDiary-Server</groupId>
-	<artifactId>HarvestDiary-Server</artifactId>
+	<artifactId>harvestdiary-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HarvestDiary-Server</name>
 	<description>HarvestDiary-Server</description>

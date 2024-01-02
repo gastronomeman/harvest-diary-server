@@ -34,6 +34,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByUsernameAndPhone(User user) {
+        return userMapper.getUserByUsernameAndPhone(user);
+    }
+
+    @Override
     public User getUserByUserId(User user) {
         return userMapper.getUserByUserId(user);
     }

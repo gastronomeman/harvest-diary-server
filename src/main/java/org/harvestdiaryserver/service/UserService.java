@@ -15,4 +15,6 @@ public interface UserService {
     User getUserByUserPhone(User user);
 
     void addUser(User user);
+
+    User getUserByUsernameAndPhone(User user);
 }

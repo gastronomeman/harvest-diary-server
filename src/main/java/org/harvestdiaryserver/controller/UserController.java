@@ -1,6 +1,7 @@
 package org.harvestdiaryserver.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.harvestdiaryserver.pojo.Diary;
 import org.harvestdiaryserver.pojo.Result;
 import org.harvestdiaryserver.pojo.User;
 
@@ -28,10 +29,12 @@ public class UserController {
     public Result login(@RequestBody User user){
         log.info("用户登录：{}", user);
         User u = userService.login(user);
+
         if (u != null){
+            log.info("用户登录：{}", u);
             return Result.success();
         }
-        return Result.error("用户名密码错误");
+        return Result.error("error3");
     }
 
     /**
@@ -52,4 +55,13 @@ public class UserController {
         return Result.success("注册成功");
 
     }
+
+    @PostMapping("/findPassword")
+    public Result findPassword(@RequestBody User user){
+        if (userService.getUserByUsernameAndPhone(user) == null){
+            return Result.error("error4");
+        }
+        return Result.success(userService.getUserByUsernameAndPhone(user));
+    }
+
 }

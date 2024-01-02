@@ -27,6 +27,9 @@ public class Result {
      * @return
      * error1：用户账号已存在
      * error2：电话已被注册
+     * error3：用户名密码错误
+     * error4：昵称或2电话号码错误
+     * error5：添加失败
      */
     public static Result error(String msg){
         return new Result(0,msg,null);
