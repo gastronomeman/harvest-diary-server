@@ -30,6 +30,8 @@ public class Result {
      * error3：用户名密码错误
      * error4：昵称或2电话号码错误
      * error5：添加日记失败
+     * error5：删除日记失败
+     *
      */
     public static Result error(String msg){
         return new Result(0,msg,null);

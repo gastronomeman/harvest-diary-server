@@ -17,4 +17,6 @@ public interface UserService {
     void addUser(User user);
 
     User getUserByUsernameAndPhone(User user);
+
+    void delUser(User user);
 }

@@ -13,8 +13,8 @@ import java.time.LocalDate;
 public class Diary {
     private String userId;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate time;
+
+    private String time;
 
     private String color;
     private String fontSize;

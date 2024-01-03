@@ -1,6 +1,7 @@
 package org.harvestdiaryserver.mapper;
 
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +29,8 @@ public interface UserMapper {
 
     @Select("select *from user_info where username = #{username} and phone = #{phone}")
     User getUserByUsernameAndPhone(User user);
+
+    @Delete("delete from user_info where user_id = #{userId} and username = #{username} and " +
+            " password = #{password} and phone = #{phone}")
+    void delUser(User user);
 }

@@ -1,10 +1,12 @@
 package org.harvestdiaryserver.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.harvestdiaryserver.mapper.DiaryMapper;
 import org.harvestdiaryserver.pojo.Diary;
 import org.harvestdiaryserver.pojo.Result;
 import org.harvestdiaryserver.pojo.User;
 
+import org.harvestdiaryserver.service.DiaryService;
 import org.harvestdiaryserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private DiaryService diaryService;
 
     /**
      * 用户登录验证
@@ -62,6 +66,13 @@ public class UserController {
             return Result.error("error4");
         }
         return Result.success(userService.getUserByUsernameAndPhone(user));
+    }
+
+    @PostMapping("/delUser")
+    public Result delUser(@RequestBody User user){
+        userService.delUser(user);
+        diaryService.delDiaries(user.getUserId());
+        return Result.success();
     }
 
 }

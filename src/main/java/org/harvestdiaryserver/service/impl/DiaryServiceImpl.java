@@ -6,10 +6,12 @@ import org.harvestdiaryserver.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DiaryServiceImpl implements DiaryService {
     @Autowired
-    DiaryMapper diaryMapper;
+    private DiaryMapper diaryMapper;
 
     @Override
     public Diary selectDiary(Diary diary) {
@@ -24,5 +26,20 @@ public class DiaryServiceImpl implements DiaryService {
     @Override
     public void updateDiary(Diary diary) {
         diaryMapper.updateDiary(diary);
+    }
+
+    @Override
+    public void delDiary(Diary diary) {
+        diaryMapper.delDiary(diary);
+    }
+
+    @Override
+    public List<Diary> getDiaries(String userId) {
+        return diaryMapper.getDiaries(userId);
+    }
+
+    @Override
+    public void delDiaries(String userId) {
+        diaryMapper.delDiaries(userId);
     }
 }
