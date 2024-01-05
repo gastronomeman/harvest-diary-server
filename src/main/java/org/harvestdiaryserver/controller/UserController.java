@@ -36,7 +36,7 @@ public class UserController {
 
         if (u != null){
             log.info("用户登录：{}", u);
-            return Result.success();
+            return Result.success(u);
         }
         return Result.error("error3");
     }
@@ -76,3 +76,4 @@ public class UserController {
     }
 
 }
+
